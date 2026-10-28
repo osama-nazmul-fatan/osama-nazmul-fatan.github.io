@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Osama Nazmul Fatan</title>
+  <meta name="description" content="Osama Nazmul Fatan — Bridging Creativity & Tech to Drive Business Growth. All my links in one place.">
+  <meta name="theme-color" content="#8a4ba3">
+
+  <!-- Link preview when shared (replace with full URL after publishing) -->
+  <meta property="og:title" content="Osama Nazmul Fatan">
+  <meta property="og:description" content="Bridging Creativity & Tech to Drive Business Growth">
+  <meta property="og:image" content="avatar.png">
+  <meta property="og:type" content="profile">
+
+  <link rel="icon" href="avatar.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --purple: #8a4ba3;        /* avatar background */
+      --purple-dark: #6c3585;
+      --purple-light: #b58ac8;
+      --lilac: #f3ebf7;
+      --ink: #1d1b22;           /* comic outline */
+      --charcoal: #3a3a44;      /* hair */
+      --sweater: #5f5f69;       /* sweater */
+      --skin: #f2c7a5;          /* warm accent */
+      --paper: #fffdfb;
+      --muted: #6b6474;
+      --border: 3px solid var(--ink);
+      --shadow: 5px 5px 0 var(--ink);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+      background-color: var(--purple);
+      /* halftone dots + sleeve-style chevrons */
+      background-image:
+        radial-gradient(rgba(255,255,255,.12) 1.2px, transparent 1.4px),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M20 30 l20 14 l20 -14 M20 44 l20 14 l20 -14' fill='none' stroke='%23ffffff' stroke-opacity='.07' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: 18px 18px, 120px 120px;
+      display: flex;
+      justify-content: center;
+      padding: 40px 16px 56px;
+      overflow-x: hidden;
+    }
+
+    /* floating decorative shapes */
+    .deco { position: fixed; pointer-events: none; z-index: 0; }
+    .deco.c1 { width: 220px; height: 220px; border-radius: 50%; background: var(--purple-light); opacity: .35; top: -60px; right: -60px; }
+    .deco.c2 { width: 160px; height: 160px; border-radius: 50%; border: 14px solid var(--purple-dark); opacity: .5; bottom: -40px; left: -40px; }
+    .deco.spark { color: #fff; opacity: .55; font-size: 22px; animation: twinkle 3s ease-in-out infinite; }
+    .deco.s1 { top: 12%; left: 10%; }
+    .deco.s2 { top: 30%; right: 12%; animation-delay: 1s; font-size: 16px; }
+    .deco.s3 { bottom: 18%; right: 8%; animation-delay: 2s; }
+    @keyframes twinkle { 0%,100% { transform: scale(1) rotate(0); opacity: .55; } 50% { transform: scale(1.35) rotate(20deg); opacity: .9; } }
+
+    .card {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 460px;
+      background: var(--paper);
+      border: var(--border);
+      border-radius: 28px;
+      box-shadow: 10px 10px 0 var(--ink);
+      padding: 0 22px 28px;
+      text-align: center;
+      animation: pop .6s cubic-bezier(.2,1.4,.4,1) both;
+    }
+    @keyframes pop { from { transform: translateY(30px) scale(.96); opacity: 0; } to { transform: none; opacity: 1; } }
+
+    /* purple header band inside the card */
+    .banner {
+      height: 120px;
+      margin: 0 -22px;
+      border-radius: 25px 25px 0 0;
+      border-bottom: var(--border);
+      background: var(--purple-dark);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M10 18 l20 13 l20 -13 M10 31 l20 13 l20 -13' fill='none' stroke='%23b58ac8' stroke-opacity='.45' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: 60px 60px;
+      position: relative;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 168px; height: 168px;
+      margin: -92px auto 0;
+    }
+    .avatar {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--purple);
+      border: 4px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+    /* comic speech bubble */
+    .bubble {
+      position: absolute; top: 4px; right: -78px;
+      background: #fff; border: var(--border); border-radius: 16px;
+      padding: 6px 12px;
+      font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: .9rem;
+      box-shadow: 3px 3px 0 var(--ink);
+      transform: rotate(6deg);
+      animation: wave 2.6s ease-in-out infinite;
+      white-space: nowrap;
+    }
+    .bubble::after {
+      content: ""; position: absolute; left: -11px; bottom: 6px;
+      width: 14px; height: 14px; background: #fff;
+      border-left: var(--border); border-bottom: var(--border);
+      transform: rotate(45deg) skew(10deg, 10deg);
+    }
+    @keyframes wave { 0%,100% { transform: rotate(6deg); } 50% { transform: rotate(-2deg) translateY(-3px); } }
+
+    h1 {
+      margin-top: 18px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.45rem, 6vw, 1.85rem);
+      font-weight: 700; letter-spacing: .5px; line-height: 1.15;
+    }
+
+    .tagline {
+      margin: 12px auto 0; max-width: 320px;
+      font-size: .98rem; line-height: 1.55; color: var(--muted);
+    }
+    .hl {
+      color: var(--ink); font-weight: 600;
+      background: linear-gradient(transparent 58%, var(--skin) 58%);
+      padding: 0 2px;
+    }
+    .hl.p { background: linear-gradient(transparent 58%, #dcc4e8 58%); }
+
+    .chips { display: flex; justify-content: center; gap: 8px; margin: 18px 0 4px; flex-wrap: wrap; }
+    .chip {
+      font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: .78rem;
+      padding: 5px 12px; border: 2px solid var(--ink); border-radius: 999px;
+      background: var(--lilac);
+    }
+    .chip i { color: var(--purple); margin-right: 4px; }
+
+    /* round icon row */
+    .icons { display: flex; justify-content: center; gap: 10px; margin: 20px 0 24px; flex-wrap: wrap; }
+    .icons a {
+      width: 46px; height: 46px; border-radius: 14px;
+      display: grid; place-items: center;
+      background: #fff; color: var(--ink);
+      border: var(--border); box-shadow: 3px 3px 0 var(--ink);
+      font-size: 1.1rem; text-decoration: none;
+      transition: transform .15s, box-shadow .15s, background .15s, color .15s;
+    }
+    .icons a:hover { transform: translate(-2px,-2px) rotate(-6deg); box-shadow: 5px 5px 0 var(--ink); background: var(--purple); color: #fff; }
+
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: .78rem;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--purple-dark);
+      margin: 6px 0 12px;
+    }
+    .section-label::before, .section-label::after { content: ""; flex: 1; height: 2px; background: var(--ink); opacity: .15; }
+
+    .links { display: flex; flex-direction: column; gap: 14px; }
+    .link {
+      display: flex; align-items: center; gap: 14px;
+      width: 100%; padding: 12px 16px;
+      background: #fff; color: var(--ink);
+      border: var(--border); border-radius: 16px;
+      box-shadow: var(--shadow);
+      text-decoration: none; text-align: left;
+      font: inherit; cursor: pointer;
+      transition: transform .15s, box-shadow .15s, background .15s;
+      opacity: 0; animation: rise .5s ease forwards;
+    }
+    .link:nth-child(1){animation-delay:.15s} .link:nth-child(2){animation-delay:.22s}
+    .link:nth-child(3){animation-delay:.29s} .link:nth-child(4){animation-delay:.36s}
+    .link:nth-child(5){animation-delay:.43s} .link:nth-child(6){animation-delay:.5s}
+    .link:nth-child(7){animation-delay:.57s} .link:nth-child(8){animation-delay:.64s}
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+    .link:hover { transform: translate(-3px,-3px); box-shadow: 8px 8px 0 var(--ink); background: var(--lilac); }
+    .link:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--ink); }
+    .link:focus-visible, .icons a:focus-visible, .btn:focus-visible { outline: 3px dashed var(--purple); outline-offset: 4px; }
+
+    .tile {
+      width: 42px; height: 42px; flex-shrink: 0;
+      border-radius: 12px; border: 2px solid var(--ink);
+      display: grid; place-items: center;
+      color: #fff; font-size: 1.1rem;
+    }
+    .linkedin  { background: #0a66c2; }
+    .facebook  { background: #1877f2; }
+    .instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+    .github    { background: #24292f; }
+    .email     { background: #ea4335; }
+    .whatsapp  { background: #25d366; }
+    .wechat    { background: #07c160; }
+    .phone     { background: var(--purple); }
+
+    .txt { flex: 1; min-width: 0; }
+    .title { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1rem; }
+    .sub { color: var(--muted); font-size: .8rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .arrow { font-size: .85rem; color: var(--purple); transition: transform .15s; }
+    .link:hover .arrow { transform: translateX(3px); }
+
+    .actions { display: flex; gap: 12px; margin-top: 24px; }
+    .btn {
+      flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 14px; border-radius: 14px; border: var(--border);
+      font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: .95rem;
+      cursor: pointer; box-shadow: 4px 4px 0 var(--ink);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink); }
+    .btn:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--ink); }
+    .btn.primary { background: var(--purple); color: #fff; }
+    .btn.secondary { background: var(--skin); color: var(--ink); }
+
+    footer {
+      margin-top: 26px; font-size: .78rem; color: var(--muted);
+    }
+    footer i { color: var(--purple); }
+
+    .toast {
+      position: fixed; left: 50%; bottom: 26px; z-index: 10;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--ink); color: #fff;
+      border: 2px solid #fff; border-radius: 999px;
+      padding: 10px 18px; font-size: .88rem; font-weight: 500;
+      opacity: 0; pointer-events: none; transition: .3s;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 420px) {
+      .card { padding: 0 16px 24px; box-shadow: 7px 7px 0 var(--ink); }
+      .banner { margin: 0 -16px; height: 104px; }
+      .avatar-wrap { width: 148px; height: 148px; margin-top: -80px; }
+      .bubble { right: -50px; top: -6px; font-size: .8rem; }
+      .icons { gap: 8px; }
+      .icons a { width: 40px; height: 40px; border-radius: 12px; font-size: 1rem; }
+      .actions { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .link { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="deco c1"></div>
+  <div class="deco c2"></div>
+  <i class="deco spark s1 fa-solid fa-star"></i>
+  <i class="deco spark s2 fa-solid fa-star"></i>
+  <i class="deco spark s3 fa-solid fa-star"></i>
+
+  <main class="card">
+    <div class="banner"></div>
+
+    <div class="avatar-wrap">
+      <img class="avatar" src="avatar.png" alt="Cartoon avatar of Osama Nazmul Fatan">
+      <div class="bubble">Hey there!</div>
+    </div>
+
+    <h1>OSAMA NAZMUL FATAN</h1>
+    <p class="tagline">
+      Bridging <span class="hl">Creativity</span> &amp; <span class="hl p">Tech</span>
+      to Drive Business Growth
+    </p>
+
+    <div class="chips">
+      <span class="chip"><i class="fa-solid fa-palette"></i>Creativity</span>
+      <span class="chip"><i class="fa-solid fa-code"></i>Tech</span>
+      <span class="chip"><i class="fa-solid fa-chart-line"></i>Growth</span>
+    </div>
+
+    <nav class="icons" aria-label="Quick links">
+      <a href="https://www.linkedin.com/in/osamanazmulfatan/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://www.facebook.com/shams.nobee/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/shams.nobee/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://github.com/osama-nazmul-fatan" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="mailto:nobee021@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://wa.me/8801963590222" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </nav>
+
+    <div class="section-label">Connect with me</div>
+
+    <section class="links">
+      <a class="link" href="https://www.linkedin.com/in/osamanazmulfatan/" target="_blank" rel="noopener">
+        <span class="tile linkedin"><i class="fa-brands fa-linkedin-in"></i></span>
+        <span class="txt"><span class="title">LinkedIn</span><span class="sub" style="display:block">in/osamanazmulfatan</span></span>
+        <i class="arrow fa-solid fa-arrow-right"></i>
+      </a>
+      <a class="link" href="https://www.facebook.com/shams.nobee/" target="_blank" rel="noopener">
+        <span class="tile facebook"><i class="fa-brands fa-facebook-f"></i></span>
+        <span class="txt"><span class="title">Facebook</span><span class="sub" style="display:block">shams.nobee</span></span>
+        <i class="arrow fa-solid fa-arrow-right"></i>
+      </a>
+      <a class="link" href="https://www.instagram.com/shams.nobee/" target="_blank" rel="noopener">
+        <span class="tile instagram"><i class="fa-brands fa-instagram"></i></span>
+        <span class="txt"><span class="title">Instagram</span><span class="sub" style="display:block">@shams.nobee</span></span>
+        <i class="arrow fa-solid fa-arrow-right"></i>
+      </a>
+      <a class="link" href="https://github.com/osama-nazmul-fatan" target="_blank" rel="noopener">
+        <span class="tile github"><i class="fa-brands fa-github"></i></span>
+        <span class="txt"><span class="title">GitHub</span><span class="sub" style="display:block">osama-nazmul-fatan</span></span>
+        <i class="arrow fa-solid fa-arrow-right"></i>
+      </a>
+      <a class="link" href="mailto:nobee021@gmail.com">
+        <span class="tile email"><i class="fa-solid fa-envelope"></i></span>
+        <span class="txt"><span class="title">Email</span><span class="sub" style="display:block">nobee021@gmail.com</span></span>
+        <i class="arrow fa-solid fa-arrow-right"></i>
+      </a>
+      <a class="link" href="https://wa.me/8801963590222" target="_blank" rel="noopener">
+        <span class="tile whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+        <span class="txt"><span class="title">WhatsApp</span><span class="sub" style="display:block">+880 1963-590222</span></span>
+        <i class="arrow fa-solid fa-arrow-right"></i>
+      </a>
+      <!-- WeChat has no public chat-by-number link, so this copies the number -->
+      <button class="link" type="button" onclick="copyText('+8801963590222', 'Copied! Search this number in WeChat')">
+        <span class="tile wechat"><i class="fa-brands fa-weixin"></i></span>
+        <span class="txt"><span class="title">WeChat</span><span class="sub" style="display:block">+880 1963-590222 · tap to copy</span></span>
+        <i class="arrow fa-regular fa-copy"></i>
+      </button>
+      <a class="link" href="tel:+8801963590222">
+        <span class="tile phone"><i class="fa-solid fa-phone"></i></span>
+        <span class="txt"><span class="title">Call me</span><span class="sub" style="display:block">+880 1963-590222</span></span>
+        <i class="arrow fa-solid fa-arrow-right"></i>
+      </a>
+    </section>
+
+    <div class="actions">
+      <button class="btn primary" type="button" onclick="saveContact()"><i class="fa-solid fa-address-card"></i> Save Contact</button>
+      <button class="btn secondary" type="button" onclick="sharePage()"><i class="fa-solid fa-share-nodes"></i> Share</button>
+    </div>
+
+    <footer>Made with <i class="fa-solid fa-heart"></i> · © <span id="year"></span> Osama Nazmul Fatan</footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.remove("show"), 2200);
+    }
+
+    function copyText(text, msg) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => showToast(msg)).catch(() => showToast(text));
+      } else {
+        showToast(text);
+      }
+    }
+
+    // Share via the phone's share sheet, or copy the link on desktop
+    function sharePage() {
+      const data = { title: "Osama Nazmul Fatan", text: "Bridging Creativity & Tech to Drive Business Growth", url: location.href };
+      if (navigator.share) {
+        navigator.share(data).catch(() => {});
+      } else {
+        copyText(location.href, "Link copied!");
+      }
+    }
+
+    // Downloads a .vcf so visitors can add you to their contacts in one tap
+    function saveContact() {
+      const vcard = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        "N:Fatan;Osama Nazmul;;;",
+        "FN:Osama Nazmul Fatan",
+        "NICKNAME:Shams Nobee",
+        "TEL;TYPE=CELL:+8801963590222",
+        "EMAIL:nobee021@gmail.com",
+        "URL:https://www.linkedin.com/in/osamanazmulfatan/",
+        "NOTE:Bridging Creativity & Tech to Drive Business Growth",
+        "END:VCARD"
+      ].join("\r\n");
+      const blob = new Blob([vcard], { type: "text/vcard" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "Osama-Nazmul-Fatan.vcf";
+      a.click();
+      URL.revokeObjectURL(a.href);
+      showToast("Contact card downloaded");
+    }
+  </script>
+</body>
+</html>
